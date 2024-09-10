@@ -60,6 +60,10 @@ var membersListSelected;
 var messageLabel;
 var selectedMember = 0;
 
+
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
 	userName = document.getElementById("username");
 	usersList = document.getElementById("userslist");
@@ -115,7 +119,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 });
 
-window.addEventListener("beforeunload" , () => {
+
+window.addEventListener("beforeunload" , () => {  //this will work when tab is about to close
 	disconnect();
 });
 
@@ -153,6 +158,16 @@ function sendPrivateMessages(receiverId) {
     });
 }
 
+
+
+
+
+
+
+
+
+//The function connects to the WebSocket server, sets up the user, and subscribes to three topics for public, private messages, and user updates.
+//It also publishes the user data to the server, making it available to other clients.
 client.onConnect = (frame) => {
     setConnected(true);
     console.log('Connected: ' + frame);
@@ -176,6 +191,8 @@ client.onConnect = (frame) => {
         body: JSON.stringify(user)
     });
 };
+
+
 
 client.onWebSocketError = (error) => {
     console.error('Error with websocket', error);
@@ -205,10 +222,10 @@ function setConnected(connected) {
 function showMessagesList(message) {
 	const date = new Date(message.timestamp);
 	if(message.action == 'NEW_MESSAGE' || message.action == 'COMMENTED') {
-		messagesList.innerHTML += "<tr><td><div><h3>" + message.user.username + "</h3> " + message.action + " " +  date.toLocaleString("nl-BE") +  " - " + message.comment + "</div></td></tr>"; 
+		messagesList.innerHTML += "<tr><td><div><h3>" + message.user.username + "</h3> " + message.action + " " +  date.toLocaleString("nl-BE") +  " - " + message.comment + "</div></td></tr>";
 	};
 	if(message.action == 'JOINED' || message.action == 'LEFT') {
-		messagesList.innerHTML += "<tr><td><div>" + message.user.username + " " + message.action + " " +  date.toLocaleString("nl-BE") + "</div></td></tr>"; 
+		messagesList.innerHTML += "<tr><td><div>" + message.user.username + " " + message.action + " " +  date.toLocaleString("nl-BE") + "</div></td></tr>";
 	}
 	updateScroll(messageList);
 }
@@ -241,6 +258,17 @@ function showUsers(users) {
 	});
 	
 }
+
+
+
+
+
+
+
+
+
+
+
 
 function hasOnlyLettersAndNumbers(string) {
 	const regex = /^[a-zA-Z0-9 ]+$/

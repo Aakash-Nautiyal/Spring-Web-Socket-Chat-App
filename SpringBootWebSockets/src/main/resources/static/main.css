@@ -1,94 +1,161 @@
+/* Reset and Box-Sizing */
 *, ::after, ::before {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* Basic Styling for HTML and Body */
 html, body {
-	margin: 0px;
-	padding: 0px;
-	width: 100%;
-	height: 100%;
-	background-color: lightcyan;
-
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f8ff; /* Light Azure background for a soft look */
+  font-family: Arial, sans-serif; /* Modern, clean font */
 }
 
+/* Header Styling */
 .header {
-	overflow: hidden;
-	width: 100%;
-	height: 10%;
-	padding: 10px;
-	margin: 0px;
-	background-color: lightblue;
-	border: 2px solid black;
+  width: 100%;
+  padding: 15px;
+  background-color: #87ceeb; /* Light Sky Blue */
+  border-bottom: 2px solid #4682b4; /* Steel Blue border for contrast */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
+.header .center {
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  color: #fff; /* White text for contrast */
+}
+
+/* Username Section Styling */
 .username {
-	overflow: hidden;
-	width: 100%;
-	height: 15%;
-	padding: 0px;
-	margin: 0px;
-	background-color: white;
-	border: 2px solid black;
+  width: 100%;
+  padding: 15px;
+  background-color: #ffffff; /* White background for clarity */
+  border-bottom: 2px solid #4682b4; /* Consistent border color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
+.username h3 {
+  margin-bottom: 10px;
+  color: #333; /* Dark grey for readability */
+}
+
+.username form {
+  display: flex;
+  align-items: center;
+}
+
+.username label, .username input, .username button {
+  margin-right: 10px;
+}
+
+.username input, .username button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.username button {
+  background-color: #4682b4; /* Consistent button color */
+  color: #fff;
+  cursor: pointer;
+}
+
+.username button:disabled {
+  background-color: #b0c4de; /* Light Steel Blue for disabled state */
+}
+
+/* Members List Styling */
 .members {
-	overflow: auto;
-	width: 100%;
-	height: 35%;
-	padding: 0px;
-	margin: 0px;
-	background-color: white;
-	border: 2px solid black;
+  width: 100%;
+  padding: 15px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #4682b4;
+  overflow-y: auto;
 }
 
+.members p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.members ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.members li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Messages Section Styling */
 .messages {
-	overflow: auto;
-	width: 100%;
-	height: 40%;
-	padding: 0px;
-	margin: 0px;
-	background-color: white;
-	border: 2px solid black;
+  width: 100%;
+  padding: 15px;
+  background-color: #ffffff;
+  border-top: 2px solid #4682b4;
+  overflow-y: auto;
 }
 
+.messages p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#conversation {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+#messagesList tr {
+  border-bottom: 1px solid #eee;
+  padding: 8px;
+}
+
+#messagesList th, #messagesList td {
+  padding: 8px;
+  text-align: left;
+}
+
+/* General Row Styling */
 .row {
-	padding: 5px;
+  margin-bottom: 10px;
 }
 
-.private {
-	color: red;
-}
-
-.center {
-	margin: auto;
-	text-align: center;
-	width: 50%;
-}
-
+/* Additional Styling for User Interaction */
 #sendmessage {
-	display: none;
-	visibility: hidden;
-	background-color: white;
+  display: block; /* Changed to block to make it visible */
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#messageitem:hover {
-	cursor: pointer;
+#sendmessage label, #sendmessage input, #sendmessage button {
+  margin-bottom: 10px;
 }
 
-.red:hover {
-	cursor: pointer;
+#messageitem:hover, .red:hover, .black:hover {
+  cursor: pointer;
 }
 
-.black:hover {
-	cursor: pointer;
-}
-
+/* Color Classes */
 .red {
-	color : red;
+  color: #ff4500; /* Orange Red for user leave */
+}
+
+.green {
+  color: #32cd32; /* Lime Green for user join */
 }
 
 .black {
-	color : black;
+  color: #000;
 }
